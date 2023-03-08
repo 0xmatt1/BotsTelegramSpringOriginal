@@ -1,8 +1,6 @@
 package com.TelegramBots.telegrambots.telegram;
 
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
@@ -30,28 +28,27 @@ public class ButtonsService {
         }
         keyboardRow2.add(new KeyboardButton(SEARCH_FOR_IP));
         keyboardRow2.add(keyboardboton);
-        keyboardboton.setText("Отправить свой контакт!");
+        keyboardboton.setText("Отправьте мне свои контакты!");
         keyboardboton.setRequestContact(true);
-        keyboardboton.setRequestLocation(true);
         keyboardRows.add(keyboardRow2);
         keyboardRows.add(keyboardRow);
         return keyboardRows;
     }
 
-/*    public List<List<InlineKeyboardButton>> createInlineButton(String buttonName) {
-        List<List<InlineKeyboardButton>> keyBoardList = new ArrayList<>();
-        List<InlineKeyboardButton> keyboardRow = new ArrayList<>();
-        InlineKeyboardButton buttonOSINT = new InlineKeyboardButton();
-        buttonOSINT.setText(buttonName);
-        buttonOSINT.setCallbackData(buttonName);
-        keyboardRow.add(buttonOSINT);
-        keyBoardList.add(keyboardRow);
-        return keyBoardList;
-    }*/
-    public InlineKeyboardMarkup setInlineKeyboard(List<List<InlineKeyboardButton>> keyBoardList ){
+    /*    public List<List<InlineKeyboardButton>> createInlineButton(String buttonName) {
+            List<List<InlineKeyboardButton>> keyBoardList = new ArrayList<>();
+            List<InlineKeyboardButton> keyboardRow = new ArrayList<>();
+            InlineKeyboardButton buttonOSINT = new InlineKeyboardButton();
+            buttonOSINT.setText(buttonName);
+            buttonOSINT.setCallbackData(buttonName);
+            keyboardRow.add(buttonOSINT);
+            keyBoardList.add(keyboardRow);
+            return keyBoardList;
+        }*/
+/*    public InlineKeyboardMarkup setInlineKeyboard(List<List<InlineKeyboardButton>> keyBoardList ){
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         inlineKeyboardMarkup.setKeyboard(keyBoardList);
         return inlineKeyboardMarkup;
-    }
+    }*/
 
 }

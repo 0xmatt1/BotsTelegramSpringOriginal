@@ -18,9 +18,9 @@ public class SendMessageService {
         return message;
     }
 
-    public SendMessage createCreatorsMessage(Update update) {
+/*    public SendMessage createCreatorsMessage(Update update) {
         return createSimpleMessage(update, CREATOR_MESSAGE);
-    }
+    }*/
 
     public SendMessage searchForID(Update update) {
         return createSimpleMessage(update, ENTER_ID_USER);
@@ -29,14 +29,13 @@ public class SendMessageService {
     public SendMessage searchForPhone(Update update) {
         return createSimpleMessage(update, ENTER_PHONE);
     }
-    public SendMessage exportContactUser(Update update) {
+/*    public SendMessage exportContactUser(Update update) {
 
         return createSimpleMessage(update, ENTER_PHONE_FROM_EXPORT);
-    }
+    }*/
 
     public SendMessage searchForIp(Update update) {
 
-        SendMessage sendMessage = createSimpleMessage(update, ENTER_IP);
         return createSimpleMessage(update, ENTER_IP);
     }
 
@@ -50,5 +49,4 @@ public class SendMessageService {
         return sendMessage;
 
     }
-
 }
