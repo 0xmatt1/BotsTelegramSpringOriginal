@@ -13,7 +13,6 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
-import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -74,15 +73,6 @@ public class TelegramBots extends TelegramLongPollingBot {
         //Определяем доступ к боту(сверка пользователя на наличие в таблице account в БД Telegram)
         if (accountRepository.findById(chatId).isPresent()) {
 
-/*            if (update.hasMessage() && update.getMessage().getContact() != null) {
-                // Get the contact
-                Contact contact = update.getMessage().getContact();
-
-
-                // Print the contact information
-
-                sendMessage(chatId, "Контакт добавлен в базу данных");
-            }*/
 
             if (update.hasMessage() && update.getMessage().hasText()) {
                 String messageText = update.getMessage().getText();
@@ -236,12 +226,6 @@ public class TelegramBots extends TelegramLongPollingBot {
         sendMessages(chatId, answer);
     }
 
-/*    private void startCommandReceived(long chatId, String firstName) {
-        sendImage(chatId, HI);
-        sendMessages(chatId, firstName);
-
-    }*/
-
     private void sendMessages(Long chatId, String textToSend) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(String.valueOf(chatId));
@@ -257,25 +241,4 @@ public class TelegramBots extends TelegramLongPollingBot {
 
 }
 
-/*    private void loxCommandReceived(long chatId, String firstName) {
-        String answer = "Пока, " + firstName + " !";
-        sendMessage(chatId,answer);
-    }
-
-    private void startCommandReceived(long chatId, String firstName) {
-        String answer = "Привет, " + firstName + " доброго времени суток!";
-        sendMessage(chatId,answer);
-
-    }
-    private void sendMessage(Long chatId, String textToSend){
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(String.valueOf(chatId));
-        sendMessage.setText(textToSend);
-
-        try{
-            execute(sendMessage);
-        } catch (TelegramApiException e) {
-
-        }
-    }*/
 
